@@ -161,6 +161,7 @@ AUDIT_FN(EnsureFilePermissions, "filename:Path to the file:M", "owner:Required o
         {
             std::ostringstream oss;
             oss << "Invalid permissions - are " << std::oct << (statbuf.st_mode & displayMask) << " while " << std::oct << mask << " should not be set";
+            OsConfigLogInfo(log, "Invalid permissions - are %o while %o should not be set", (statbuf.st_mode & displayMask), mask);
             return indicators.NonCompliant(oss.str());
         }
         else
