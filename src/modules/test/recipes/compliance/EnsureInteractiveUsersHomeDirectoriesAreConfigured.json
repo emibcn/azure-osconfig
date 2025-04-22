@@ -104,6 +104,9 @@
     "Payload": "PASS{ allOf: [{ EnsureInteractiveUsersHomeDirectoriesAreConfigured:  } == TRUE]} == TRUE"
   },
   {
+    "RunCommand": "stat /home/securitybaselinetest"
+  },
+  {
     "RunCommand": "stat /home/securitybaselinetest | grep -E 'Access: \\(0750/drwxr-x---\\)'"
   },
 
@@ -135,6 +138,9 @@
     "ComponentName": "Compliance",
     "ObjectName": "auditEnsureInteractiveUsersHomeDirectoriesAreConfigured",
     "Payload": "PASS{ allOf: [{ EnsureInteractiveUsersHomeDirectoriesAreConfigured:  } == TRUE]} == TRUE"
+  },
+  {
+    "RunCommand": "stat /home/securitybaselinetest"
   },
   {
     "RunCommand": "stat /home/securitybaselinetest | grep -E 'Access: \\(0750/d[r-][w-]x[r-]-[x-]---\\)'"
@@ -169,6 +175,9 @@
     "ComponentName": "Compliance",
     "ObjectName": "auditEnsureInteractiveUsersHomeDirectoriesAreConfigured",
     "Payload": "PASS{ allOf: [{ EnsureInteractiveUsersHomeDirectoriesAreConfigured:  } == TRUE]} == TRUE"
+  },
+  {
+    "RunCommand": "stat /home/securitybaselinetest"
   },
   {
     "RunCommand": "stat /home/securitybaselinetest | grep -E 'Access: \\(0750/d[r-][w-]x[r-]-[x-]---\\)'"
