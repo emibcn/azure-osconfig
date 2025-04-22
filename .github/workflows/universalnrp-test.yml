@@ -147,7 +147,7 @@ jobs:
     name: MC Test
     if: ${{ always() }}
     needs: [setup-matrix, package, custom-download]
-    runs-on: [self-hosted, 1ES.Pool=ci-pool, '1ES.ImageOverride=${{ matrix.target.os }}-${{ matrix.target.version }}']
+    runs-on: [self-hosted, 1ES.Pool=ci-pool, '1ES.WorkFolder=/mnt/storage', '1ES.ImageOverride=${{ matrix.target.os }}-${{ matrix.target.version }}']
     strategy:
       fail-fast: false
       matrix:
@@ -258,7 +258,7 @@ jobs:
     # Module test requires the package artifact as it also includes the modules to be tested in the artifact
     if: ${{ needs.setup-matrix.outputs.custom_download == 'false' }}
     needs: [setup-matrix, package]
-    runs-on: [self-hosted, 1ES.Pool=ci-pool, '1ES.ImageOverride=${{ matrix.target.os }}-${{ matrix.target.version }}']
+    runs-on: [self-hosted, 1ES.Pool=ci-pool, '1ES.WorkFolder=/mnt/storage', '1ES.ImageOverride=${{ matrix.target.os }}-${{ matrix.target.version }}']
     strategy:
       fail-fast: false
       matrix:
